@@ -112,7 +112,7 @@ start.addEventListener("click",startQuiz);
 // start quiz
 function startQuiz(){
     start.style.display = "none";
-    byRob.style.display = "none";
+    // byRob.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
     renderProgress();
@@ -173,12 +173,12 @@ function checkAnswer(answer){
     }
 }
 
-// answer is correct
+// if the answer is correct - change background color to green
 function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// answer is Wrong
+// If the answer is wrong - change background color to red through hex
 function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
@@ -191,12 +191,7 @@ function scoreRender(){
     const scorePerCent = Math.round(100 * score/questions.length);
     
     // choose the image based on the scorePerCent
-    let img = (scorePerCent >= 80) ? "img/5.png" :
-              (scorePerCent >= 60) ? "img/4.png" :
-              (scorePerCent >= 40) ? "img/3.png" :
-              (scorePerCent >= 20) ? "img/2.png" :
-              "img/1.png";
+   
     
-    scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }

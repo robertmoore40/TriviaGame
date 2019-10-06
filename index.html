@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Julius Caesar Quiz</h1>
+                <p class="lead">This is a quick 10 question quiz to test your knowledge of Rome's most famous - or infamous, citizen. You have 15 seconds for each question.</p>
+                </div>
+              </div>
     <div id="container">
-        <div id="start">Click here to begin the Julius Caesar history quiz!</div>
-        <div id="byRob">By Big Rob 6'6" 260</div>
+        
+        <div id="start">Click here to begin the quiz!</div>
+        
+        <!-- Removed with addition of Bootstrap -->
+        <!-- <div id="byRob">By Big Rob 6'6" 260</div> -->
+        
+        
         <div id="quiz" style="display: none">
             <div id="question"></div>
             <div id="qImg"></div>
+
+            <!-- Add more choices here to create quizzes with higher question counts -->
+
             <div id="choices">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
