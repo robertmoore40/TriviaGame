@@ -5,7 +5,6 @@ body{
     background-image: url("papyrus.png");
     background-repeat: repeat;
     font-size: 20px;
-    font-family: monospace;
     
 }
 
@@ -169,11 +168,14 @@ body{
 #scoreContainer p{
     position: absolute;
     display: block;
-    width : 59px;
-    height :59px;
-    top:130px;
-    left:325px;
+    width : 50%;
+    height :15%;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
+    /* border: solid 1px black; */
+    padding:15px;
+    left: 25%;
+    top:35%;
+
 }

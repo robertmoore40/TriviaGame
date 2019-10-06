@@ -193,5 +193,5 @@ function scoreRender(){
     // choose the image based on the scorePerCent
    
     
-    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+    scoreDiv.innerHTML += "<p>"+ "Your score was " + scorePerCent +"%</p>";
 }
