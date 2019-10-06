@@ -1,4 +1,5 @@
 // select all elements
+
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
@@ -22,63 +23,54 @@ let questions = [
         correct : "A"
     },{
         question : "Which river did Caesar cross to initiate the Great Roman Civil War?",
-        imgSrc : "img/html.png",
         choiceA : "Danube",
         choiceB : "Rhine",
         choiceC : "Rubicon",
         correct : "C"
     },{
         question : "Who was Caesar's co-magistrate in his first time as consul?",
-        imgSrc : "img/html.png",
         choiceA : "Bibulus",
         choiceB : "Cicero",
         choiceC : "Marius",
         correct : "A"
     },{
+        question : "Who financially backed Caesar in his early political career?",
+        choiceA : "Trump",
+        choiceB : "Pompey",
+        choiceC : "Crassus",
+        correct : "C"
+    },{
         question : "Which province was Caesar appointed to as Proconsul?",
-        imgSrc : "img/html.png",
         choiceA : "Syria",
         choiceB : "Gaul",
         choiceC : "Spain",
         correct : "B"
     },{
         question : "Who was Caesar's first wife?",
-        imgSrc : "img/html.png",
         choiceA : "Pompey",
         choiceB : "Cornelia",
         choiceC : "Hannibal",
         correct : "A"
     },{
         question : "Who was Caesar's great enemy during his civil war?",
-        imgSrc : "img/html.png",
         choiceA : "Pompey",
         choiceB : "Pliny",
         choiceC : "Trajan",
         correct : "A"
     },{
         question : "Where was Caesar's last battle with Pompey?",
-        imgSrc : "img/html.png",
         choiceA : "Pharsalus",
         choiceB : "Alesia",
         choiceC : "Zama",
         correct : "A"
     },{
-        question : "",
-        imgSrc : "img/html.png",
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        correct : "A"
-    },{
-        question : "Who murdered Caesar?",
-        imgSrc : "img/html.png",
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        correct : "A"
+        question : "When was he appointed dictator in perpetuity?",
+        choiceA : "53 B.C.",
+        choiceB : "46 B.C",
+        choiceC : "44 B.C.",
+        correct : "C"
     },{
         question : "After Caesar's death, who was the first to rally his followers?",
-        imgSrc : "img/html.png",
         choiceA : "Cleopatra",
         choiceB : "Marc Antony",
         choiceC : "Augustus",
