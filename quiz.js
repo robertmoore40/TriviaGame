@@ -89,7 +89,7 @@ const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
 
-// render a question
+// fill in questions and answers dynamically
 function renderQuestion(){
     let q = questions[runningQuestion];
     

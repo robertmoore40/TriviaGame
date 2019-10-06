@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- insert bootstrap headline -->
+    
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Julius Caesar Quiz</h1>
@@ -19,11 +22,10 @@
         
         <!-- Removed with addition of Bootstrap -->
         <!-- <div id="byRob">By Big Rob 6'6" 260</div> -->
-        
-        
+<!--         
+        Upon click - hide div  -->
         <div id="quiz" style="display: none">
             <div id="question"></div>
-            <div id="qImg"></div>
 
             <!-- Add more choices here to create quizzes with higher question counts -->
 
@@ -32,6 +34,9 @@
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
             </div>
+            
+            <!-- timed counter and guage for each question -->
+
             <div id="timer">
                 <div id="counter"></div>
                 <div id="btimeGauge"></div>
