@@ -1,19 +1,19 @@
 // select all elements
 
-const start = document.getElementById("start");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
-const qImg = document.getElementById("qImg");
-const choiceA = document.getElementById("A");
-const choiceB = document.getElementById("B");
-const choiceC = document.getElementById("C");
-const counter = document.getElementById("counter");
-const timeGauge = document.getElementById("timeGauge");
-const progress = document.getElementById("progress");
-const scoreDiv = document.getElementById("scoreContainer");
+var start = document.getElementById("start");
+var quiz = document.getElementById("quiz");
+var question = document.getElementById("question");
+var qImg = document.getElementById("qImg");
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var counter = document.getElementById("counter");
+var timeGauge = document.getElementById("timeGauge");
+var progress = document.getElementById("progress");
+var scoreDiv = document.getElementById("scoreContainer");
 
 // create our questions
-let questions = [
+var questions = [
     {
         question : "Who exiled Caesar from Italy in his Youth?",
         imgSrc : "img/html.png",
@@ -50,7 +50,7 @@ let questions = [
         choiceA : "Pompey",
         choiceB : "Cornelia",
         choiceC : "Hannibal",
-        correct : "A"
+        correct : "B"
     },{
         question : "Who was Caesar's great enemy during his civil war?",
         choiceA : "Pompey",
@@ -80,24 +80,26 @@ let questions = [
 
 // create some variables
 
-const lastQuestion = questions.length - 1;
-let runningQuestion = 0;
-let count = 0;
-const questionTime = 15; // 15s
-const gaugeWidth = 150; // 150px
-const gaugeUnit = gaugeWidth / questionTime;
-let TIMER;
-let score = 0;
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var count = 0;
+var questionTime = 15; // 15s
+var gaugeWidth = 150; // 150px
+var gaugeUnit = gaugeWidth / questionTime;
+var TIMER;
+var score = 0;
 
 // fill in questions and answers dynamically
-function renderQuestion(){
-    let q = questions[runningQuestion];
+function questionFill(){
+    var questionList = questions[runningQuestion];
     
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
+    question.innerHTML = "<p>"+ questionList.question +"</p>";
+    choiceA.innerHTML = questionList.choiceA;
+    choiceB.innerHTML = questionList.choiceB;
+    choiceC.innerHTML = questionList.choiceC;
 }
+
+// Add event listener to begin the quiz
 
 start.addEventListener("click",startQuiz);
 
@@ -105,38 +107,38 @@ start.addEventListener("click",startQuiz);
 function startQuiz(){
     start.style.display = "none";
     // byRob.style.display = "none";
-    renderQuestion();
+    questionFill();
     quiz.style.display = "block";
-    renderProgress();
-    renderCounter();
-    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+    progressBar();
+    scoreFiller();
+    TIMER = setInterval(scoreFiller,1000); // 1000ms = 1s
 }
 
 // render progress
-function renderProgress(){
-    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+function progressBar(){
+    for(var qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
 
 // counter render
 
-function renderCounter(){
+function scoreFiller(){
     if(count <= questionTime){
         counter.innerHTML = count;
         timeGauge.style.width = count * gaugeUnit + "px";
         count++
     }else{
         count = 0;
-        // change progress color to red
+        // change progress circle color to red
         answerIsWrong();
         if(runningQuestion < lastQuestion){
             runningQuestion++;
-            renderQuestion();
+            questionFill();
         }else{
             // end the quiz and show the score
             clearInterval(TIMER);
-            scoreRender();
+            createScore();
         }
     }
 }
@@ -157,11 +159,11 @@ function checkAnswer(answer){
     count = 0;
     if(runningQuestion < lastQuestion){
         runningQuestion++;
-        renderQuestion();
+        questionFill();
     }else{
         // end the quiz and show the score
         clearInterval(TIMER);
-        scoreRender();
+        createScore();
     }
 }
 
@@ -176,11 +178,11 @@ function answerIsWrong(){
 }
 
 // score render
-function scoreRender(){
+function createScore(){
     scoreDiv.style.display = "block";
     
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score/questions.length);
+    var scorePerCent = Math.round(100 * score/questions.length);
     
     // choose the image based on the scorePerCent
    
