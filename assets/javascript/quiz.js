@@ -1,22 +1,29 @@
-// select all elements
+// get all html elements
 
 var start = document.getElementById("start");
+
 var quiz = document.getElementById("quiz");
+
 var question = document.getElementById("question");
-var qImg = document.getElementById("qImg");
+
 var choiceA = document.getElementById("A");
+
 var choiceB = document.getElementById("B");
+
 var choiceC = document.getElementById("C");
+
 var counter = document.getElementById("counter");
+
 var timeGauge = document.getElementById("timeGauge");
+
 var progress = document.getElementById("progress");
+
 var scoreDiv = document.getElementById("scoreContainer");
 
-// create our questions
+// create questions and designate answers
 var questions = [
     {
         question : "Who exiled Caesar from Italy in his Youth?",
-        imgSrc : "img/html.png",
         choiceA : "Sulla",
         choiceB : "Marius",
         choiceC : "Cato",
@@ -78,7 +85,7 @@ var questions = [
     },
 ];
 
-// create some variables
+// create needed variables for running time and progress meter/count
 
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
@@ -86,7 +93,7 @@ var count = 0;
 var questionTime = 15; // 15s
 var gaugeWidth = 150; // 150px
 var gaugeUnit = gaugeWidth / questionTime;
-var TIMER;
+var timer;
 var score = 0;
 
 // fill in questions and answers dynamically
@@ -111,17 +118,17 @@ function startQuiz(){
     quiz.style.display = "block";
     progressBar();
     scoreFiller();
-    TIMER = setInterval(scoreFiller,1000); // 1000ms = 1s
+    timer = setInterval(scoreFiller,1000); // 1000ms = 1s
 }
 
-// render progress
+// make a function for the progress bar
 function progressBar(){
     for(var qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
 
-// counter render
+// make a function for the counter
 
 function scoreFiller(){
     if(count <= questionTime){
@@ -137,13 +144,13 @@ function scoreFiller(){
             questionFill();
         }else{
             // end the quiz and show the score
-            clearInterval(TIMER);
+            clearInterval(timer);
             createScore();
         }
     }
 }
 
-// checkAnwer
+// checkAnswer Function
 
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
@@ -162,7 +169,7 @@ function checkAnswer(answer){
         questionFill();
     }else{
         // end the quiz and show the score
-        clearInterval(TIMER);
+        clearInterval(timer);
         createScore();
     }
 }
@@ -172,12 +179,12 @@ function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// If the answer is wrong - change background color to red through hex
+// If the answer is incorrect - change background color to red through hex
 function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
-// score render
+// Create score function
 function createScore(){
     scoreDiv.style.display = "block";
     
