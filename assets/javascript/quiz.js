@@ -6,7 +6,7 @@ var quiz = document.getElementById("quiz");
 
 var counter = document.getElementById("counter");
 
-var currentTimerFill = document.getElementById("currentTimerFill");
+var timeGauge = document.getElementById("timeGauge");
 
 var progress = document.getElementById("progress");
 
@@ -20,7 +20,9 @@ var choiceB = document.getElementById("B");
 
 var choiceC = document.getElementById("C");
 
-
+// var choiceD
+// var choiceE
+// var choiceF
 
 // create questions and designate answers
 var questions = [
@@ -90,7 +92,7 @@ var questions = [
 // create needed variables for running time and progress meter/count
 
 var lastQuestion = questions.length - 1;
-var runningQuestion = 0;
+var questionCycle = 0;
 var count = 0;
 var questionTime = 15; // 15s
 var gaugeWidth = 150; // 150px
@@ -100,7 +102,7 @@ var score = 0;
 
 // fill in questions and answers dynamically
 function questionFill(){
-    var questionList = questions[runningQuestion];
+    var questionList = questions[questionCycle];
     
     question.innerHTML = "<p>"+ questionList.question +"</p>";
     choiceA.innerHTML = questionList.choiceA;
@@ -135,14 +137,14 @@ function progressBar(){
 function scoreFiller(){
     if(count <= questionTime){
         counter.innerHTML = count;
-        currentTimerFill.style.width = count * gaugeUnit + "px";
+        timeGauge.style.width = count * gaugeUnit + "px";
         count++
     }else{
         count = 0;
         // change progress circle color to red
         answerIsWrong();
-        if(runningQuestion < lastQuestion){
-            runningQuestion++;
+        if(questionCycle < lastQuestion){
+            questionCycle++;
             questionFill();
         }else{
             // end the quiz and show the score
@@ -155,7 +157,7 @@ function scoreFiller(){
 // checkAnswer Function
 
 function checkAnswer(answer){
-    if( answer == questions[runningQuestion].correct){
+    if( answer == questions[questionCycle].correct){
         // answer is correct
         score++;
         // change progress color to green
@@ -166,8 +168,8 @@ function checkAnswer(answer){
         answerIsWrong();
     }
     count = 0;
-    if(runningQuestion < lastQuestion){
-        runningQuestion++;
+    if(questionCycle < lastQuestion){
+        questionCycle++;
         questionFill();
     }else{
         // end the quiz and show the score
@@ -178,12 +180,12 @@ function checkAnswer(answer){
 
 // if the answer is correct - change background color to green
 function answerIsCorrect(){
-    document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+    document.getElementById(questionCycle).style.backgroundColor = "#0f0";
 }
 
 // If the answer is incorrect - change background color to red through hex
 function answerIsWrong(){
-    document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+    document.getElementById(questionCycle).style.backgroundColor = "#f00";
 }
 
 // Create score function
