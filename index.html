@@ -26,33 +26,23 @@
         <div id="quiz" style="display: none">
             <div id="question"></div>
 
-            <!-- Possible answers needs to grab checkanswer function with argument of letter -->
-
-            <div id="possibleAnswers">
+            <div id="choices">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-
-                <!-- These can be activated for quizzes with longer choice options -->
-
-                <!-- <div class="choice" id="D" onclick="checkAnswer('D')"></div>
-                <div class="choice" id="E" onclick="checkAnswer('E')"></div>
-                <div class="choice" id="F" onclick="checkAnswer('F')"></div> -->
             </div>
             
-           <!-- Creates Div with timer options, you need both a bar, and background bar, as well as a visual counter -->
+            <!-- timed counter and guage for each question -->
 
             <div id="timer">
                 <div id="counter"></div>
-                <div id="timerFillBar"></div>
-                <div id="currentTimerFill"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
             </div>
             <div id="progress"></div>
         </div>
-
-    <!-- final score container, add picture? -->
         <div id="scoreContainer" style="display: none">
-                <!-- <img id="caesarPic" src="assets/images/caesar.jpg" alt="picture of caesar"> -->
+                <img id="caesarPic" src="assets/images/caesar.jpg" alt="picture of caesar">
         </div>
     </div>
     <script src="assets/javascript/quiz.js"></script>

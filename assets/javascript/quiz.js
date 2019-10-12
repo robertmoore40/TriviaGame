@@ -4,14 +4,6 @@ var start = document.getElementById("start");
 
 var quiz = document.getElementById("quiz");
 
-var counter = document.getElementById("counter");
-
-var timeGauge = document.getElementById("timeGauge");
-
-var progress = document.getElementById("progress");
-
-var scoreDiv = document.getElementById("scoreContainer");
-
 var question = document.getElementById("question");
 
 var choiceA = document.getElementById("A");
@@ -20,9 +12,13 @@ var choiceB = document.getElementById("B");
 
 var choiceC = document.getElementById("C");
 
-// var choiceD
-// var choiceE
-// var choiceF
+var counter = document.getElementById("counter");
+
+var timeGauge = document.getElementById("timeGauge");
+
+var progress = document.getElementById("progress");
+
+var scoreDiv = document.getElementById("scoreContainer");
 
 // create questions and designate answers
 var questions = [
@@ -92,7 +88,7 @@ var questions = [
 // create needed variables for running time and progress meter/count
 
 var lastQuestion = questions.length - 1;
-var questionCycle = 0;
+var runningQuestion = 0;
 var count = 0;
 var questionTime = 15; // 15s
 var gaugeWidth = 150; // 150px
@@ -102,7 +98,7 @@ var score = 0;
 
 // fill in questions and answers dynamically
 function questionFill(){
-    var questionList = questions[questionCycle];
+    var questionList = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ questionList.question +"</p>";
     choiceA.innerHTML = questionList.choiceA;
@@ -143,8 +139,8 @@ function scoreFiller(){
         count = 0;
         // change progress circle color to red
         answerIsWrong();
-        if(questionCycle < lastQuestion){
-            questionCycle++;
+        if(runningQuestion < lastQuestion){
+            runningQuestion++;
             questionFill();
         }else{
             // end the quiz and show the score
@@ -157,7 +153,7 @@ function scoreFiller(){
 // checkAnswer Function
 
 function checkAnswer(answer){
-    if( answer == questions[questionCycle].correct){
+    if( answer == questions[runningQuestion].correct){
         // answer is correct
         score++;
         // change progress color to green
@@ -168,8 +164,8 @@ function checkAnswer(answer){
         answerIsWrong();
     }
     count = 0;
-    if(questionCycle < lastQuestion){
-        questionCycle++;
+    if(runningQuestion < lastQuestion){
+        runningQuestion++;
         questionFill();
     }else{
         // end the quiz and show the score
@@ -180,12 +176,12 @@ function checkAnswer(answer){
 
 // if the answer is correct - change background color to green
 function answerIsCorrect(){
-    document.getElementById(questionCycle).style.backgroundColor = "#0f0";
+    document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
 // If the answer is incorrect - change background color to red through hex
 function answerIsWrong(){
-    document.getElementById(questionCycle).style.backgroundColor = "#f00";
+    document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
 // Create score function
@@ -195,8 +191,6 @@ function createScore(){
     // calculate the amount of question percent answered by the user
     var scorePerCent = Math.round(100 * score/questions.length);
     
-    // choose the image based on the scorePerCent
-   
-    
+ 
     scoreDiv.innerHTML += "<p>"+ "Your score was " + scorePerCent +"%</p>";
 }
