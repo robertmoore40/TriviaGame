@@ -26,6 +26,8 @@
         <div id="quiz" style="display: none">
             <div id="question"></div>
 
+            <!-- Possible answers needs to grab checkanswer function with argument of letter -->
+
             <div id="possibleAnswers">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
@@ -47,8 +49,10 @@
             </div>
             <div id="progress"></div>
         </div>
+
+    <!-- final score container, add picture? -->
         <div id="scoreContainer" style="display: none">
-                <img id="caesarPic" src="assets/images/caesar.jpg" alt="picture of caesar">
+                <!-- <img id="caesarPic" src="assets/images/caesar.jpg" alt="picture of caesar"> -->
         </div>
     </div>
     <script src="assets/javascript/quiz.js"></script>

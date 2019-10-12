@@ -19,8 +19,7 @@ body{
     height: 500px;
     width : 50em;
     border-radius: 5px;
-    border: black;
-    box-shadow: 0px 5px 15px 0px;
+    border: black solid 1px;
     position: relative;
 }
 
@@ -65,6 +64,8 @@ body{
     height : 125px;
     left:0;
     top:0;
+    margin-right: 0;
+    margin-left:0;
 }
 #question p{
     right: 0;
