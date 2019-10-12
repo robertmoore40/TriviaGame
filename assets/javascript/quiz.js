@@ -6,7 +6,7 @@ var quiz = document.getElementById("quiz");
 
 var counter = document.getElementById("counter");
 
-var timeGauge = document.getElementById("timeGauge");
+var currentTimerFill = document.getElementById("currentTimerFill");
 
 var progress = document.getElementById("progress");
 
@@ -135,7 +135,7 @@ function progressBar(){
 function scoreFiller(){
     if(count <= questionTime){
         counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
+        currentTimerFill.style.width = count * gaugeUnit + "px";
         count++
     }else{
         count = 0;

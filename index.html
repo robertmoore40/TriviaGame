@@ -26,18 +26,24 @@
         <div id="quiz" style="display: none">
             <div id="question"></div>
 
-            <div id="choices">
+            <div id="possibleAnswers">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+
+                <!-- These can be activated for quizzes with longer choice options -->
+
+                <!-- <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+                <div class="choice" id="E" onclick="checkAnswer('E')"></div>
+                <div class="choice" id="F" onclick="checkAnswer('F')"></div> -->
             </div>
             
-            <!-- timed counter and guage for each question -->
+           <!-- Creates Div with timer options, you need both a bar, and background bar, as well as a visual counter -->
 
             <div id="timer">
                 <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
+                <div id="timerFillBar"></div>
+                <div id="currentTimerFill"></div>
             </div>
             <div id="progress"></div>
         </div>
